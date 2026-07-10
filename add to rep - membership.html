@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Real Deal Monthly · A Private Financial Membership</title>
+<meta name="description" content="Real Deal Monthly — one firm for your books, reporting, taxes, and payroll. A private financial membership from Real Deal Accounting." />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<meta name="theme-color" content="#0F1E3D" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/rda.css" />
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0F1E3D"/><text x="50" y="45" font-family="Georgia, serif" font-size="15" fill="#fff" text-anchor="middle">Real Deal</text><text x="50" y="66" font-family="Georgia, serif" font-size="15" fill="#5E86B8" text-anchor="middle">Monthly</text></svg>
+</template>
+<style>
+  /* ============ MEMBERSHIP PAGE ============ */
+  .mb-hero{ position:relative; overflow:hidden; padding:96px var(--pad) 92px; color:#eaf1fb;
+    background:
+      radial-gradient(120% 120% at 82% -12%, rgba(94,134,184,.30) 0%, rgba(15,30,61,0) 52%),
+      linear-gradient(160deg, #0F1E3D 0%, #12213f 46%, #0d1a34 100%); }
+  .mb-hero .wrap{ position:relative; z-index:2; }
+  .mb-hero .kicker{ color:#9db8dc; }
+  .mb-hero .kicker::before{ background:#9db8dc; opacity:.7; }
+  .mb-hero h1{ color:#fff; font-size:clamp(44px,6vw,78px); line-height:1.02; letter-spacing:-.02em; }
+  .mb-hero h1 em{ font-style:italic; color:#8fb2e0; }
+  .mb-hero .lede{ max-width:60ch; margin:26px 0 0; font-size:19px; line-height:1.72; color:#c6d4e8; }
+  .mb-hero .prep{ margin-top:34px; font-size:12.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:#7f9bc4; }
+  /* faint grid texture */
+  .mb-hero .grid-tx{ position:absolute; inset:0; z-index:1; opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:52px 52px; mask-image:radial-gradient(90% 80% at 70% 0%, #000 30%, transparent 78%); }
+
+  /* narrative */
+  .mb-story{ padding:104px 0 92px; }
+  .mb-story .wrap{ max-width:920px; }
+  .mb-story p{ font-size:19px; line-height:1.8; color:var(--body); margin-bottom:26px; }
+  .mb-story p:last-of-type{ margin-bottom:0; }
+  .mb-story strong{ color:var(--ink); font-weight:700; }
+  .mb-pull{ margin:52px 0; padding:36px 44px; border-left:3px solid var(--blue);
+    background:linear-gradient(180deg, var(--soft) 0%, #fff 100%); border-radius:0 14px 14px 0; }
+  .mb-pull q{ font-family:var(--display); font-style:italic; font-size:clamp(22px,2.6vw,28px); line-height:1.4; color:var(--ink); quotes:none; }
+  .mb-pull .attr{ display:block; margin-top:18px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--blue); }
+
+  /* covers strip */
+  .mb-covers{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:56px; }
+  .mb-cover{ padding:30px 26px; border:1px solid var(--line); border-radius:16px; background:#fff; box-shadow:var(--shadow-sm);
+    transition:transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s, border-color .3s; }
+  .mb-cover:hover{ transform:translateY(-6px); box-shadow:var(--shadow); border-color:var(--line-strong); }
+  .mb-cover .ic{ width:46px; height:46px; display:flex; align-items:center; justify-content:center; border-radius:12px;
+    background:rgba(15,61,110,.09); color:var(--blue); margin-bottom:20px; }
+  .mb-cover h3{ font-size:20px; margin-bottom:8px; }
+  .mb-cover p{ font-size:14.5px; color:var(--muted); line-height:1.6; }
+
+  /* what you get */
+  .mb-gains{ display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-top:56px; }
+  .mb-gain{ position:relative; padding:38px 40px 34px; border:1px solid var(--line); border-radius:18px; background:#fff;
+    box-shadow:var(--shadow-sm); transition:transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s; }
+  .mb-gain:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
+  .mb-gain .gn{ font-family:var(--display); font-size:34px; color:var(--blue); line-height:1; margin-bottom:16px; }
+  .mb-gain h3{ font-size:23px; letter-spacing:-.01em; margin-bottom:12px; }
+  .mb-gain > p{ font-size:16px; line-height:1.7; color:var(--body); }
+  .mb-gain .looks{ margin-top:20px; padding-top:18px; border-top:1px dashed var(--line-strong);
+    font-size:13.5px; line-height:1.6; color:var(--muted); }
+  .mb-gain .looks b{ display:block; font-family:var(--sans); font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--slate); margin-bottom:6px; }
+
+  /* standard bar */
+  .mb-standard{ margin-top:60px; padding:44px; border-radius:18px; text-align:center; color:#eaf1fb;
+    background:linear-gradient(120deg, #0F1E3D, #12274d); box-shadow:0 26px 60px rgba(15,30,61,.24); }
+  .mb-flow{ display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:14px 8px; margin-bottom:18px; }
+  .mb-flow span{ font-family:var(--sans); font-size:13.5px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:#fff; padding:9px 16px; border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.05); }
+  .mb-flow .ar{ color:#7f9bc4; border:none; background:none; padding:0; font-size:16px; }
+  .mb-standard p{ font-size:16px; color:#c6d4e8; max-width:52ch; margin:0 auto; }
+
+  /* pricing */
+  .mb-tiers{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; align-items:start; }
+  .mb-tier{ position:relative; display:flex; flex-direction:column; padding:40px 34px 36px; border:1px solid var(--line);
+    border-radius:20px; background:#fff; box-shadow:var(--shadow-sm); transition:transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s; }
+  .mb-tier:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
+  .mb-tier.feat{ border:1.5px solid var(--blue); box-shadow:0 30px 64px rgba(15,61,110,.20); }
+  .mb-tier .badge{ position:absolute; top:-13px; left:50%; transform:translateX(-50%); white-space:nowrap;
+    font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#fff; background:var(--blue);
+    padding:7px 16px; border-radius:999px; box-shadow:0 8px 20px rgba(15,61,110,.32); }
+  .mb-tier .tname{ font-family:var(--display); font-size:26px; color:var(--ink); }
+  .mb-tier .tsub{ margin-top:8px; font-size:14.5px; color:var(--muted); line-height:1.55; min-height:44px; }
+  .mb-tier .price{ margin:22px 0 4px; font-family:var(--display); font-size:38px; color:var(--blue); font-weight:600; }
+  .mb-tier .per{ font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--slate); }
+  .mb-tier ul{ list-style:none; margin:26px 0 0; padding:26px 0 0; border-top:1px solid var(--line); display:grid; gap:13px; }
+  .mb-tier li{ position:relative; padding-left:28px; font-size:14.5px; line-height:1.5; color:var(--body); }
+  .mb-tier li::before{ content:""; position:absolute; left:0; top:7px; width:16px; height:16px; border-radius:50%;
+    background:rgba(15,61,110,.10) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='11' viewBox='0 0 24 24' fill='none' stroke='%230F3D6E' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5 9.5 18 20 6.5'/%3E%3C/svg%3E") center/11px no-repeat; }
+  .mb-tier li.roll{ font-weight:700; color:var(--ink); padding-left:0; }
+  .mb-tier li.roll::before{ display:none; }
+  .mb-tier .btn{ margin-top:28px; width:100%; justify-content:center; }
+
+  /* beyond */
+  .mb-beyond{ margin-top:60px; }
+  .mb-beyond-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0 60px; margin-top:30px; border-top:1px solid var(--line); }
+  .mb-beyond-grid .row{ display:flex; justify-content:space-between; align-items:baseline; gap:24px; padding:20px 0; border-bottom:1px solid var(--line); }
+  .mb-beyond-grid .row .lbl{ font-family:var(--display); font-size:18px; color:var(--ink); }
+  .mb-beyond-grid .row .val{ font-size:13.5px; color:var(--muted); text-align:right; white-space:nowrap; }
+
+  /* start / cta */
+  .mb-start{ margin-top:64px; padding:56px; border-radius:22px; text-align:center;
+    background:radial-gradient(120% 130% at 50% -20%, var(--soft-2) 0%, var(--soft) 45%, #fff 100%); border:1px solid var(--line); }
+  .mb-start h2{ font-size:clamp(30px,3.4vw,42px); }
+  .mb-start .steps{ display:flex; justify-content:center; flex-wrap:wrap; gap:14px; margin:30px 0 6px; }
+  .mb-start .step{ font-size:14px; color:var(--slate); padding:10px 18px; background:#fff; border:1px solid var(--line); border-radius:999px; }
+  .mb-start .step b{ color:var(--blue); }
+  .mb-start p.note{ margin-top:26px; font-size:15px; color:var(--muted); max-width:56ch; margin-left:auto; margin-right:auto; }
+  .mb-start .cta{ margin-top:32px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+  @media (max-width: 1024px){
+    .mb-covers{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width: 760px){
+    .mb-hero{ padding:70px var(--pad) 64px; }
+    .mb-story{ padding:70px 0 60px; }
+    .mb-pull{ padding:28px 26px; }
+    .mb-covers{ grid-template-columns:1fr; gap:14px; }
+    .mb-gains{ grid-template-columns:1fr; gap:16px; }
+    .mb-gain{ padding:30px 26px; }
+    .mb-standard{ padding:32px 24px; }
+    .mb-tiers{ grid-template-columns:1fr; gap:32px; }
+    .mb-tier.feat{ order:-1; }
+    .mb-beyond-grid{ grid-template-columns:1fr; gap:0; }
+    .mb-start{ padding:40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav">
+  <div class="wrap nav-row">
+    <div class="nav-brand">
+      <a class="nav-logo" href="index.html" aria-label="Real Deal Accounting, home"><img src="logo-mark-ibm.png" alt="Real Deal Accounting" /></a>
+      <span class="nav-seal" role="img" aria-label="35 years in business">
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="56" fill="#ffffff" stroke="#0F1E3D" stroke-width="1.2"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#0F1E3D" stroke-width="0.6" stroke-opacity="0.45"/>
+          <text x="60" y="56" font-family="Newsreader, Georgia, serif" font-size="40" font-weight="500" fill="#0F1E3D" text-anchor="middle">35</text>
+          <text x="60" y="74" font-family="Manrope, sans-serif" font-size="9" font-weight="700" letter-spacing="3" fill="#0F1E3D" text-anchor="middle">YEARS</text>
+          <text x="60" y="86" font-family="Manrope, sans-serif" font-size="7" font-weight="600" letter-spacing="2.2" fill="#0F3D6E" text-anchor="middle">IN BUSINESS</text>
+        </svg>
+      </span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html#philosophy">Our Philosophy</a>
+      <a href="index.html#approach">Our Approach</a>
+      <a href="index.html#team">Our Team</a>
+      <a href="index.html#giving">Giving</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn" data-calendly>Book Free Consultation</button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="inner">
+      <a href="index.html#philosophy">Our Philosophy</a>
+      <a href="index.html#approach">Our Approach</a>
+      <a href="index.html#team">Our Team</a>
+      <a href="index.html#giving">Giving</a>
+      <a href="contact.html">Contact</a>
+      <button class="btn" data-calendly>Book Free Consultation</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="mb-hero">
+    <div class="grid-tx" aria-hidden="true"></div>
+    <div class="wrap reveal">
+      <div class="kicker">A Private Financial Membership</div>
+      <h1>Real Deal <em>Monthly</em></h1>
+      <p class="lede">One firm for your books, reporting, taxes, and payroll. Senior people who know your file, plain answers instead of jargon, and a standard where nothing is filed until three sets of eyes agree.</p>
+      <div class="prep">Real Solutions. Real Results. Real Deal.</div>
+    </div>
+  </section>
+
+  <!-- ============ STORY ============ -->
+  <section class="mb-story">
+    <div class="wrap reveal">
+      <p>You’ve built a business that runs on your judgment and a fair amount of nerve. What it probably doesn’t run on is a clear, current view of its own numbers, because keeping the books, planning the taxes, and running payroll is a full-time job you’re either paying someone to do halfway, or quietly doing yourself at eleven at night.</p>
+      <p>Most owners treat their accounting like a treadmill bought in January: it sits in the garage until April, when they climb on, sprint in a panic, and swear they’ll do better. Getting in shape never worked that way, and neither does this. Think of Real Deal Monthly as <strong>financial fitness</strong>: one team that knows your numbers, reviews them every month, catches the strain before it becomes an injury, and keeps you moving toward the goal.</p>
+      <p>We’re a South Florida firm that works the way you’d want one to: senior people who know your file, plain answers instead of jargon, and a standard where nothing is filed until it has been prepared, independently reviewed, and signed off by a partner. Three sets of eyes, every time.</p>
+
+      <div class="mb-pull">
+        <q>A gym membership was never about the treadmill. It was about having someone who knew your numbers, and held you to the plan.</q>
+        <span class="attr">The Real Deal Accounting Team</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT IT COVERS ============ -->
+  <section class="section--tight soft">
+    <div class="wrap reveal">
+      <div class="kicker">What your membership covers</div>
+      <h2 class="h2">Four disciplines, one team.</h2>
+      <div class="mb-covers">
+        <div class="mb-cover">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h12"/></svg></div>
+          <h3>Bookkeeping</h3>
+          <p>Clean, reconciled books every month.</p>
+        </div>
+        <div class="mb-cover">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
+          <h3>Reporting</h3>
+          <p>A plain monthly read on your numbers.</p>
+        </div>
+        <div class="mb-cover">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l1 4H8l1-4zM6 7h12l-1 13H7L6 7zM10 11v5M14 11v5"/></svg></div>
+          <h3>Tax</h3>
+          <p>Planned all year, no April surprises.</p>
+        </div>
+        <div class="mb-cover">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h3>Payroll &amp; more</h3>
+          <p>The money in and out, handled for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT YOU GET ============ -->
+  <section class="section">
+    <div class="wrap reveal">
+      <div class="kicker">What you get</div>
+      <h2 class="h2">Four things off your plate.<br />Four things you gain.</h2>
+      <div class="mb-gains">
+        <div class="mb-gain">
+          <div class="gn">1</div>
+          <h3>You always know where you stand.</h3>
+          <p>Your books are closed and reconciled every month, not stitched together in spring. Open your file on any given Tuesday and the numbers are real: what came in, what went out, what you actually made.</p>
+          <div class="looks"><b>What that looks like</b>Every account reconciled monthly · every transaction coded to the right vendor · personal kept clean of business.</div>
+        </div>
+        <div class="mb-gain">
+          <div class="gn">2</div>
+          <h3>Someone reads the numbers for you.</h3>
+          <p>Clean books are the floor, not the ceiling. Each month you get a plain read: what’s trending, where money leaks, how your margins compare, and a short conversation about what to do next.</p>
+          <div class="looks"><b>What that looks like</b>Monthly P&amp;L and balance sheet · a CFO dashboard of what matters · industry benchmarks · a standing review call.</div>
+        </div>
+        <div class="mb-gain">
+          <div class="gn">3</div>
+          <h3>No April surprises, and you keep more.</h3>
+          <p>We plan your taxes across the whole year, on live numbers. Estimates are handled before they’re due, and your entity, compensation, and strategies like cost segregation are structured to keep money where it belongs, with you.</p>
+          <div class="looks"><b>What that looks like</b>Year-round planning · quarterly estimates · S-corp and reasonable-comp strategy · business and personal returns filed.</div>
+        </div>
+        <div class="mb-gain">
+          <div class="gn">4</div>
+          <h3>The busywork runs without you.</h3>
+          <p>Payroll, bill pay, and invoicing are the errands that quietly eat your week. We run them on schedule and sync everything back to your books, so you stop being the bottleneck for money moving in and out.</p>
+          <div class="looks"><b>What that looks like</b>Payroll processed and filed, W-2s and 1099s · bills paid on your approval · invoices sent and chased · all flowing into your books.</div>
+        </div>
+      </div>
+
+      <div class="mb-standard reveal">
+        <div class="mb-flow">
+          <span>Prepared</span><span class="ar">→</span>
+          <span>Independent Review</span><span class="ar">→</span>
+          <span>Partner Sign-off</span><span class="ar">→</span>
+          <span>Filed</span>
+        </div>
+        <p>It’s a simple standard. Nothing leaves our office until three sets of eyes agree.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MEMBERSHIP TIERS ============ -->
+  <section class="section--tight soft">
+    <div class="wrap reveal">
+      <div class="kicker">Membership</div>
+      <h2 class="h2">Choose your level.</h2>
+      <p class="lead" style="max-width:62ch;margin-top:14px;">One flat monthly fee. No hourly meters, no surprise invoices. You know what you pay, and you use it as much as you need.</p>
+
+      <div class="mb-tiers">
+        <!-- Foundation -->
+        <div class="mb-tier">
+          <div class="tname">Foundation</div>
+          <div class="tsub">Clean books and a return done right.</div>
+          <ul>
+            <li>Monthly bookkeeping &amp; reconciliations</li>
+            <li>Monthly P&amp;L and balance sheet</li>
+            <li>Annual business &amp; personal returns</li>
+            <li>Year-end W-2s and 1099s</li>
+          </ul>
+          <button class="btn btn-ghost" data-plan="Foundation">Start the conversation</button>
+        </div>
+        <!-- Advisory -->
+        <div class="mb-tier feat">
+          <div class="badge">Most Chosen</div>
+          <div class="tname">Advisory</div>
+          <div class="tsub">Use the numbers, not just file them.</div>
+          <ul>
+            <li class="roll">Everything in Foundation</li>
+            <li>CFO dashboard &amp; monthly review</li>
+            <li>Year-round tax planning</li>
+            <li>Quarterly estimates &amp; benchmarking</li>
+          </ul>
+          <button class="btn" data-plan="Advisory">Start the conversation <span class="arw">→</span></button>
+        </div>
+        <!-- Private -->
+        <div class="mb-tier">
+          <div class="tname">Private</div>
+          <div class="tsub">The whole back office, simply gone.</div>
+          <ul>
+            <li class="roll">Everything in Advisory</li>
+            <li>Payroll, AP &amp; AR managed</li>
+            <li>Advanced tax &amp; entity strategy</li>
+            <li>A dedicated partner on call</li>
+          </ul>
+          <button class="btn btn-ghost" data-plan="Private">Start the conversation</button>
+        </div>
+      </div>
+
+      <!-- Beyond the membership -->
+      <div class="mb-beyond reveal">
+        <div class="kicker" style="margin-top:8px;">Beyond the membership</div>
+        <p style="color:var(--muted);max-width:62ch;">Occasional, one-off work priced separately from your monthly fee, only when you need it.</p>
+        <div class="mb-beyond-grid">
+          <div class="row"><span class="lbl">Onboarding &amp; books catch-up</span><span class="val">One-time, scoped to your file</span></div>
+          <div class="row"><span class="lbl">Prior-year cleanup</span><span class="val">Quoted per year</span></div>
+          <div class="row"><span class="lbl">Cost-segregation study</span><span class="val">Quoted per property</span></div>
+          <div class="row"><span class="lbl">Additional entities or state filings</span><span class="val">Priced each</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GETTING STARTED ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="mb-start reveal">
+        <div class="kicker" style="justify-content:center;">Getting started</div>
+        <h2>When you’re ready, one conversation gets it started.</h2>
+        <div class="steps">
+          <div class="step"><b>Week 1</b> — Kickoff &amp; secure access</div>
+          <div class="step"><b>Weeks 2–4</b> — Cleanup &amp; first monthly close</div>
+          <div class="step"><b>Then</b> — A steady monthly rhythm</div>
+        </div>
+        <p class="note">No long contract to trap you. Membership is month to month, because we’d rather earn it than lock you in.</p>
+        <div class="cta">
+          <button class="btn btn-lg" data-calendly>Book Free Consultation <span class="arw">→</span></button>
+          <button class="btn btn-ghost btn-lg" data-book>Connect With Us</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img class="foot-logo" src="logo-mark-white.png" alt="Real Deal Accounting" />
+      </div>
+      <div class="fcol">
+        <h4>Explore</h4>
+        <a href="index.html#philosophy">Our Philosophy</a>
+        <a href="index.html#approach">Our Approach</a>
+        <a href="index.html#team">Our Team</a>
+      </div>
+      <div class="fcol">
+        <h4>Firm</h4>
+        <a href="index.html#giving">Giving</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#approach">Services</a>
+      </div>
+      <div class="fcol">
+        <h4>Contact</h4>
+        <a href="/cdn-cgi/l/email-protection#80c3ece9e5eef4d3e5f2f6e9e3e5f3c0f2e5e1ece4e5e1ece1e3e3eff5eef4e9eee7aee3efed"><span class="__cf_email__" data-cfemail="e5a6898c808b91b68097938c868096a597808489818084898486868a908b918c8b82cb868a88">[email&#160;protected]</span></a>
+        <a href="tel:+15612704850">(561) 270-4850</a>
+        <a style="cursor:default;color:rgba(226,233,244,.55)">6301 NW 5th Way, Fort Lauderdale, FL 33309</a>
+      </div>
+    </div>
+    <div class="foot-copy">
+      <span>© 2026 Real Deal Accounting. All rights reserved.</span>
+      <span>Real Solutions. Real Results. Real Deal.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================== MEMBERSHIP PLAN MODAL ============================== -->
+<div class="modal-back" id="planModalBack" role="dialog" aria-modal="true" aria-labelledby="planModalTitle">
+  <div class="modal">
+    <button class="modal-x" id="planModalClose" aria-label="Close" style="position:absolute;">✕</button>
+    <div class="modal-head" style="position:relative;">
+      <div class="kicker" style="margin-bottom:14px;">Real Deal Monthly</div>
+      <h3 id="planModalTitle">Start your membership</h3>
+      <p>Tell us a little about your business and we’ll walk you through the right level, no obligation.</p>
+    </div>
+    <form class="modal-body" id="planForm" novalidate>
+      <input type="hidden" name="_subject" value="New membership inquiry" />
+      <label class="svc-label">Which level fits you?</label>
+      <div class="svc-chips plan-chips" role="radiogroup" aria-label="Membership level">
+        <label class="chip"><input type="radio" name="plan" value="Foundation" /><span>Foundation</span></label>
+        <label class="chip"><input type="radio" name="plan" value="Advisory" /><span>Advisory</span></label>
+        <label class="chip"><input type="radio" name="plan" value="Private" /><span>Private</span></label>
+        <label class="chip"><input type="radio" name="plan" value="Not sure yet" /><span>Not sure yet</span></label>
+      </div>
+      <div class="field"><label for="p-name">Full name <span class="req">*</span></label><input id="p-name" name="name" type="text" placeholder="Jane Smith" autocomplete="name" /><div class="err">Please enter your name.</div></div>
+      <div class="frow2">
+        <div class="field"><label for="p-email">Email <span class="req">*</span></label><input id="p-email" name="email" type="email" placeholder="jane@acme.com" autocomplete="email" /><div class="err">Please enter a valid email.</div></div>
+        <div class="field"><label for="p-phone">Phone</label><input id="p-phone" name="phone" type="tel" placeholder="(561) 555-0123" autocomplete="tel" /><div class="err">&nbsp;</div></div>
+      </div>
+      <div class="field"><label for="p-business">Business name</label><input id="p-business" name="business" type="text" placeholder="Acme LLC" autocomplete="organization" /><div class="err">&nbsp;</div></div>
+      <div class="field" style="margin-bottom:20px;"><label for="p-message">Anything we should know?</label><textarea id="p-message" name="message" rows="3" placeholder="Your current setup, what’s on your plate, or what you’re hoping to hand off."></textarea><div class="err">&nbsp;</div></div>
+      <button class="btn" type="submit">Start the conversation <span class="arw">→</span></button>
+      <p class="modal-note">We’ll get back to you within one business day.</p>
+    </form>
+    <div class="modal-success" id="planSuccess">
+      <div class="success-mark"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg></div>
+      <h3>You're all set!</h3>
+      <p>Thanks, <span class="who" id="planSuccessName">there</span>. We've received your membership inquiry and will reach out to <span class="who" id="planSuccessEmail">your inbox</span> within one business day.</p>
+      <button class="btn" id="planSuccessDone" style="margin-top:26px;">Done</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== BOOKING MODAL ============================== -->
+<div class="modal-back" id="modalBack" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-x" id="modalClose" aria-label="Close" style="position:absolute;">✕</button>
+    <div class="modal-head" style="position:relative;">
+      <h3 id="modalTitle">Connect with us</h3>
+    </div>
+    <form class="modal-body" id="bookForm" novalidate>
+      <div class="field"><label for="f-name">Full name <span class="req">*</span></label><input id="f-name" name="name" type="text" placeholder="Jane Smith" autocomplete="name" /><div class="err">Please enter your name.</div></div>
+      <div class="frow2">
+        <div class="field"><label for="f-email">Email <span class="req">*</span></label><input id="f-email" name="email" type="email" placeholder="jane@acme.com" autocomplete="email" /><div class="err">Please enter a valid email.</div></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" placeholder="(561) 555-0123" autocomplete="tel" /><div class="err">&nbsp;</div></div>
+      </div>
+      <label class="svc-label">What can we help you with?</label>
+      <div class="svc-chips">
+        <label class="chip"><input type="checkbox" name="services" value="Bookkeeping" /><span>Bookkeeping</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Tax Services" /><span>Tax Services</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Tax Advisory" /><span>Tax Advisory</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="CFO Advisory" /><span>CFO Advisory</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Financial Fitness" /><span>Financial Fitness</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Strategic Reporting" /><span>Strategic Reporting</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Something else" /><span>Something else</span></label>
+      </div>
+      <div class="field" style="margin-bottom:20px;"><label for="f-message">How can we best support you?</label><textarea id="f-message" name="message" rows="4" placeholder="Tell us about your business, the challenges you’re facing, or any questions you have, so we can best serve you."></textarea><div class="err">Please tell us a little about what you need.</div></div>
+      <button class="btn" type="submit">Send message <span class="arw">→</span></button>
+      <p class="modal-note">We’ll get back to you within one business day.</p>
+    </form>
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-mark"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg></div>
+      <h3>You're all set!</h3>
+      <p>Thanks, <span class="who" id="successName">there</span>. We've received your message and will reach out to <span class="who" id="successEmail">your inbox</span> within one business day.</p>
+      <button class="btn" id="successDone" style="margin-top:26px;">Done</button>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/rda.js"></script>
+<script>
+/* ---------- Membership plan modal (separate from generic contact) ---------- */
+(function(){
+  var FORMSPREE_URL = 'https://formspree.io/f/xrewvwov';
+  var back = document.getElementById('planModalBack');
+  if (!back) return;
+  var form = document.getElementById('planForm');
+  var success = document.getElementById('planSuccess');
+  var lastFocus = null;
+
+  function open(plan){
+    lastFocus = document.activeElement;
+    back.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    form.style.display = ''; success.classList.remove('show');
+    // preselect the clicked plan
+    form.querySelectorAll('input[name=plan]').forEach(function(r){ r.checked = (r.value === plan); });
+    setTimeout(function(){ var n=document.getElementById('p-name'); if(n) n.focus(); }, 80);
+  }
+  function close(){
+    back.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('[data-plan]').forEach(function(b){
+    b.addEventListener('click', function(e){ e.preventDefault(); open(b.getAttribute('data-plan')); });
+  });
+  var x = document.getElementById('planModalClose'); if(x) x.addEventListener('click', close);
+  var done = document.getElementById('planSuccessDone'); if(done) done.addEventListener('click', close);
+  back.addEventListener('click', function(e){ if (e.target === back) close(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && back.classList.contains('open')) close(); });
+
+  function setInv(id, bad){ var el=document.getElementById(id); if(el) el.closest('.field').classList.toggle('invalid', bad); }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = (document.getElementById('p-name').value||'').trim();
+    var email = (document.getElementById('p-email').value||'').trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    setInv('p-name', !name); setInv('p-email', !emailOk);
+    if (!name || !emailOk){ var fb=form.querySelector('.field.invalid input'); if(fb) fb.focus(); return; }
+    var planEl = form.querySelector('input[name=plan]:checked');
+    var plan = planEl ? planEl.value : 'Not specified';
+    try{
+      var fd = new FormData(form);
+      fd.set('_subject', 'New membership inquiry (' + plan + ') — ' + name);
+      fetch(FORMSPREE_URL, { method:'POST', body:fd, headers:{ 'Accept':'application/json' } }).catch(function(){});
+    }catch(err){}
+    document.getElementById('planSuccessName').textContent = name.split(' ')[0] || 'there';
+    document.getElementById('planSuccessEmail').textContent = email;
+    form.style.display = 'none'; success.classList.add('show');
+  });
+  form.querySelectorAll('input, textarea').forEach(function(inp){
+    inp.addEventListener('input', function(){ var f=inp.closest('.field'); if(f) f.classList.remove('invalid'); });
+  });
+})();
+</script>
+</body>
+</html>
