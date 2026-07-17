@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>America 250 · Real Deal Accounting</title>
+<meta name="description" content="Real Deal Accounting proudly joins the nation in celebrating America's 250th anniversary, 1776 to 2026." />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<meta name="theme-color" content="#0F1E3D" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/rda.css" />
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0F1E3D"/><text x="50" y="62" font-family="Georgia, serif" font-size="34" fill="#B31942" text-anchor="middle">250</text></svg>
+</template>
+<style>
+  /* compact standalone America 250 page */
+  .a250-page{ min-height:calc(100vh - 92px); display:flex; align-items:center; justify-content:center;
+    padding:80px var(--pad); background:radial-gradient(120% 105% at 80% -8%, #dce9ff 0%, #eef4fd 40%, #ffffff 100%); }
+  .a250-card{ max-width:720px; text-align:center; }
+  .a250-seal-lg{ width:150px; height:150px; margin:0 auto 30px; display:block; filter:drop-shadow(0 14px 30px rgba(15,30,61,.22)); }
+  .a250-card .kicker{ justify-content:center; }
+  .a250-card h1{ font-family:var(--display); font-weight:500; font-size:clamp(38px,5vw,60px); letter-spacing:-.012em; line-height:1.1; }
+  .a250-card h1 em{ font-style:italic; color:var(--blue); }
+  .a250-card .sub{ font-size:18px; color:var(--muted); line-height:1.7; margin:24px auto 14px; max-width:56ch; }
+  .a250-card .sub + .sub{ margin-top:16px; }
+  .a250-flag{ width:64px; height:3px; margin:34px auto 0; border-radius:2px;
+    background:linear-gradient(90deg, #B31942 0 33.3%, #ffffff 33.3% 66.6%, #0A3161 66.6% 100%);
+    box-shadow:0 0 0 1px rgba(15,30,61,.08); }
+  .a250-card .cta{ margin-top:38px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav">
+  <div class="wrap nav-row">
+    <div class="nav-brand">
+      <a class="nav-logo" href="index.html" aria-label="Real Deal Accounting, home"><img src="logo-mark-ibm.png" alt="Real Deal Accounting" /></a>
+      <span class="nav-seal" role="img" aria-label="35 years in business">
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="56" fill="#ffffff" stroke="#0F1E3D" stroke-width="1.2"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#0F1E3D" stroke-width="0.6" stroke-opacity="0.45"/>
+          <text x="60" y="56" font-family="Newsreader, Georgia, serif" font-size="40" font-weight="500" fill="#0F1E3D" text-anchor="middle">35</text>
+          <text x="60" y="74" font-family="Manrope, sans-serif" font-size="9" font-weight="700" letter-spacing="3" fill="#0F1E3D" text-anchor="middle">YEARS</text>
+          <text x="60" y="86" font-family="Manrope, sans-serif" font-size="7" font-weight="600" letter-spacing="2.2" fill="#0F3D6E" text-anchor="middle">IN BUSINESS</text>
+        </svg>
+      </span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html#philosophy">Our Philosophy</a>
+      <a href="index.html#approach">Our Approach</a>
+      <a href="index.html#team">Our Team</a>
+      <a href="index.html#giving">Giving</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn" data-calendly>Book Free Consultation</button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="inner">
+      <a href="index.html#philosophy">Our Philosophy</a>
+      <a href="index.html#approach">Our Approach</a>
+      <a href="index.html#team">Our Team</a>
+      <a href="index.html#giving">Giving</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html">Contact</a>
+      <button class="btn" data-calendly>Book Free Consultation</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="a250-page">
+    <div class="a250-card">
+      <svg class="a250-seal-lg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="America 250 seal, 1776 to 2026">
+        <defs>
+          <path id="a250Top" d="M 24 80 A 46 46 0 0 1 116 80" />
+          <path id="a250Bot" d="M 30 84 A 40 40 0 0 0 110 84" />
+        </defs>
+        <circle cx="70" cy="70" r="66" fill="#0F1E3D"/>
+        <circle cx="70" cy="70" r="66" fill="none" stroke="#B31942" stroke-width="2"/>
+        <circle cx="70" cy="70" r="57" fill="#fbfcfe"/>
+        <circle cx="70" cy="70" r="57" fill="none" stroke="#0F3D6E" stroke-width="1.4"/>
+        <text font-family="Manrope, sans-serif" font-size="9.4" font-weight="800" letter-spacing="1.6" fill="#0F1E3D">
+          <textPath href="#a250Top" startOffset="50%" text-anchor="middle">CELEBRATING AMERICA'S</textPath>
+        </text>
+        <text font-family="Manrope, sans-serif" font-size="9.2" font-weight="700" letter-spacing="2" fill="#B31942">
+          <textPath href="#a250Bot" startOffset="50%" text-anchor="middle">1776 ★ 2026</textPath>
+        </text>
+        <path d="M70 34 l1.6 3.4 3.7.5 -2.7 2.6.7 3.7 -3.3-1.8 -3.3 1.8.7-3.7 -2.7-2.6 3.7-.5z" fill="#B31942"/>
+        <text x="70" y="86" font-family="Newsreader, Georgia, serif" font-size="34" font-weight="600" fill="#0F1E3D" text-anchor="middle">250</text>
+        <text x="70" y="99" font-family="Manrope, sans-serif" font-size="6.6" font-weight="700" letter-spacing="1.5" fill="#0F3D6E" text-anchor="middle">SEMIQUINCENTENNIAL</text>
+      </svg>
+      <div class="kicker">1776 &ndash; 2026</div>
+      <h1>Celebrating <em>America 250</em></h1>
+      <p class="sub">This year the nation marks its 250th anniversary, a quarter-millennium of American enterprise, ambition, and the small businesses that built it.</p>
+      <p class="sub">At Real Deal Accounting we are proud to serve the entrepreneurs who carry that spirit forward. Honoring the founders who took the first risk, and every business owner still betting on themselves today.</p>
+      <div class="a250-flag" aria-hidden="true"></div>
+      <div class="cta">
+        <a class="btn btn-lg" href="index.html">Back to home <span class="arw">→</span></a>
+        <button class="btn btn-ghost btn-lg" data-book>Let's Connect</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-sisters">
+      <div class="fs-head">
+        <span class="fs-label">Our Family of Firms</span>
+        <span class="fs-rule"></span>
+      </div>
+      <div class="fs-links">
+        <a href="https://edgecostseg.com/" target="_blank" rel="noopener"><span class="fs-plate"><img class="fs-logo" src="img/sister-edge.png" alt="Edge Cost Segregation" /></span>
+          <span class="fs-body">
+            <span class="fs-name">Edge Cost Segregation</span>
+            <span class="fs-desc">Engineering-based cost segregation studies that accelerate depreciation.</span>
+          </span>
+          <span class="fs-arw">↗</span>
+        </a>
+        <a href="https://resolvedirs.com/index.dc.html" target="_blank" rel="noopener"><span class="fs-plate"><img class="fs-logo" src="img/sister-resolved.png" alt="Resolve IRS" /></span>
+          <span class="fs-body">
+            <span class="fs-name">Resolve IRS</span>
+            <span class="fs-desc">Specialized IRS resolution and tax relief for individuals and businesses.</span>
+          </span>
+          <span class="fs-arw">↗</span>
+        </a>
+      </div>
+    </div>
+    <div class="foot-grid">
+      <div>
+        <img class="foot-logo" src="logo-mark-white.png" alt="Real Deal Accounting" />
+        
+        
+      </div>
+      <div class="fcol">
+        <h4>Explore</h4>
+        <a href="index.html#philosophy">Our Philosophy</a>
+        <a href="index.html#approach">Our Approach</a>
+        <a href="index.html#team">Our Team</a>
+      </div>
+      <div class="fcol">
+        <h4>Firm</h4>
+        <a href="index.html#giving">Giving</a>
+        <a href="insights.html">Insights</a>
+      <a href="contact.html">Contact</a>
+        <a href="index.html#approach">Services</a>
+      </div>
+      <div class="fcol">
+        <h4>Contact</h4>
+        <a href="mailto:ClientServices@realdealaccounting.com">ClientServices@realdealaccounting.com</a>
+        <a href="tel:+15612704850">(561) 270-4850</a>
+        <a style="cursor:default;color:rgba(226,233,244,.55)">Mon&ndash;Fri · 9am&ndash;5pm</a>
+      </div>
+    </div>
+    <div class="foot-copy">
+      <span>© 2026 Real Deal Accounting. All rights reserved.</span>
+      <span>Real Solutions. Real Results. Real Deal.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================== BOOKING MODAL ============================== -->
+<div class="modal-back" id="modalBack" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-x" id="modalClose" aria-label="Close" style="position:absolute;">✕</button>
+    <div class="modal-head" style="position:relative;">
+      <h3 id="modalTitle">Let's Connect</h3>
+    </div>
+    <form class="modal-body" id="bookForm" novalidate>
+      <div class="field"><label for="f-name">Full name <span class="req">*</span></label><input id="f-name" name="name" type="text" placeholder="Jane Smith" autocomplete="name" /><div class="err">Please enter your name.</div></div>
+      <div class="frow2">
+        <div class="field"><label for="f-email">Email <span class="req">*</span></label><input id="f-email" name="email" type="email" placeholder="jane@acme.com" autocomplete="email" /><div class="err">Please enter a valid email.</div></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" placeholder="(561) 555-0123" autocomplete="tel" /><div class="err">&nbsp;</div></div>
+      </div>
+      <label class="svc-label">What can we help you with?</label>
+      <div class="svc-chips">
+        <label class="chip"><input type="checkbox" name="services" value="Bookkeeping" /><span>Bookkeeping</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Tax Services" /><span>Tax Services</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Tax Advisory" /><span>Tax Advisory</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="CFO Advisory" /><span>CFO Advisory</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Financial Fitness" /><span>Financial Fitness</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Strategic Reporting" /><span>Strategic Reporting</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Something else" /><span>Something else</span></label>
+      </div>
+      <div class="field" style="margin-bottom:20px;"><label for="f-message">How can we best support you?</label><textarea id="f-message" name="message" rows="4" placeholder="Tell us about your business, the challenges you’re facing, or any questions you have, so we can best serve you."></textarea><div class="err">Please tell us a little about what you need.</div></div>
+      <button class="btn" type="submit">Send message <span class="arw">→</span></button>
+      <p class="modal-note">We’ll get back to you within one business day.</p>
+    </form>
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-mark"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg></div>
+      <h3>You're all set!</h3>
+      <p>Thanks, <span class="who" id="successName">there</span>. We've received your message and will reach out to <span class="who" id="successEmail">your inbox</span> within one business day.</p>
+      <button class="btn" id="successDone" style="margin-top:26px;">Done</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/rda.js"></script>
+</body>
+</html>
