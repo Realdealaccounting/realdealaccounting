@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Insights · Real Deal Accounting</title>
+<meta name="description" content="Insights for smarter business decisions. Practical accounting, tax, and financial-strategy resources from the advisors at Real Deal Accounting." />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<meta name="theme-color" content="#01143A" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/rda.css" />
+<style>
+  /* ---- Insights: pillar library ---- */
+  a{ color:inherit; } a:hover{ color:var(--blue); }
+  .lib-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  .pillar{ position:relative; display:flex; flex-direction:column; justify-content:flex-end; min-height:330px;
+    border-radius:20px; overflow:hidden; padding:28px; color:#fff; background:#0F1E3D; isolation:isolate;
+    box-shadow:var(--shadow-sm); transition:transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .4s ease; }
+  .pillar::before{ content:""; position:absolute; inset:0; z-index:-2; background-image:var(--card-img);
+    background-size:cover; background-position:center; opacity:.55; transition:opacity .4s ease, transform .6s ease; }
+  .pillar::after{ content:""; position:absolute; inset:0; z-index:-1;
+    background:linear-gradient(180deg, rgba(15,30,61,.08) 0%, rgba(15,30,61,.42) 48%, rgba(11,22,44,.93) 100%); }
+  .pillar:hover{ transform:translateY(-6px); box-shadow:var(--shadow); }
+  .pillar:hover::before{ opacity:.72; transform:scale(1.06); }
+  .pillar .p-top{ display:flex; align-items:center; gap:12px; margin-bottom:auto; }
+  .pillar .p-idx{ font-family:var(--display); font-size:14px; font-weight:600; color:#fff; letter-spacing:.02em; opacity:.85; }
+  .pillar .p-cat{ font-family:var(--sans); font-size:10.5px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+    color:#fff; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28); border-radius:999px; padding:6px 12px; }
+  .pillar h3{ font-size:22px; line-height:1.24; color:#fff; margin:16px 0 14px; text-wrap:pretty; }
+  .pillar .p-more{ display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-size:13px;
+    font-weight:700; color:#fff; transition:gap .25s ease; }
+  .pillar:hover .p-more{ gap:13px; }
+  .pillar.is-signature{ box-shadow:0 0 0 2px rgba(94,134,184,.9) inset, var(--shadow-sm); }
+  .pillar.is-signature .p-cat{ background:rgba(94,134,184,.28); border-color:rgba(143,178,224,.55); color:#eaf1fb; }
+  .pillar.is-soon::before{ opacity:.82; }
+  .pillar.is-soon:hover::before{ opacity:.92; }
+  /* knowledge-center hero photo (scoped to this page) */
+  .blog-hero{ background:linear-gradient(90deg, rgba(11,22,44,.94) 0%, rgba(12,24,48,.78) 40%, rgba(13,26,52,.5) 72%, rgba(13,26,52,.4) 100%), url('img/knowledge-hero.png') !important; background-size:cover !important; background-position:center right !important; }
+  .blog-hero h1{ max-width:30ch !important; }
+  /* signature spotlight band */
+  .ff-band{ position:relative; overflow:hidden; border-radius:24px; padding:56px 56px 52px; color:#eaf1fb;
+    background:radial-gradient(120% 130% at 88% -20%, rgba(94,134,184,.30) 0%, rgba(15,30,61,0) 54%), linear-gradient(160deg,#0F1E3D 0%,#12213f 48%,#0d1a34 100%); }
+  .ff-band .grid-tx{ position:absolute; inset:0; opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:46px 46px; mask-image:radial-gradient(90% 90% at 82% 0%,#000 30%,transparent 78%); }
+  .ff-band .ff-inner{ position:relative; z-index:1; display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:center; }
+  .ff-band .kicker{ color:#9db8dc; } .ff-band .kicker::before{ background:#9db8dc; opacity:.7; }
+  .ff-band h2{ color:#fff; font-size:clamp(30px,3.4vw,44px); line-height:1.08; }
+  .ff-band h2 sup{ font-size:.5em; top:-.7em; }
+  .ff-band p{ color:#c6d4e8; font-size:17px; line-height:1.7; margin-top:20px; max-width:52ch; }
+  .ff-band .ff-cta{ margin-top:30px; }
+  .ff-score{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:18px; padding:30px 32px; }
+  .ff-score .ff-h{ font-family:var(--sans); font-size:11.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#9db8dc; white-space:nowrap; }
+  .ff-list{ list-style:none; margin:16px 0 0; padding:0; }
+  .ff-list li{ display:flex; align-items:center; gap:13px; padding:13px 0; border-top:1px solid rgba(255,255,255,.1); font-size:15px; color:#eaf1fb; font-weight:800; text-transform:uppercase; letter-spacing:.04em; }
+  .ff-list li:first-child{ border-top:none; }
+  .ff-list li .n{ font-family:var(--display); font-size:19px; font-weight:600; color:#8fb2e0; min-width:26px; }
+  @media (max-width:860px){
+    .lib-grid{ grid-template-columns:1fr; }
+    .ff-band{ padding:40px 26px; } .ff-band .ff-inner{ grid-template-columns:1fr; gap:32px; }
+  }
+</style>
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#01143A"/><text x="50" y="62" font-family="Georgia, serif" font-size="40" fill="#8AB6F2" text-anchor="middle">i</text></svg>
+</template>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav">
+  <div class="wrap nav-row">
+    <div class="nav-brand">
+      <a class="nav-logo" href="index.html" aria-label="Real Deal Accounting, home"><img src="logo-mark-ibm.png" alt="Real Deal Accounting" /></a>
+      <span class="nav-seal" role="img" aria-label="35 years in business">
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="56" fill="#ffffff" stroke="#0F1E3D" stroke-width="1.2"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="#0F1E3D" stroke-width="0.6" stroke-opacity="0.45"/>
+          <text x="60" y="56" font-family="Newsreader, Georgia, serif" font-size="40" font-weight="500" fill="#0F1E3D" text-anchor="middle">35</text>
+          <text x="60" y="74" font-family="Manrope, sans-serif" font-size="9" font-weight="700" letter-spacing="3" fill="#0F1E3D" text-anchor="middle">YEARS</text>
+          <text x="60" y="86" font-family="Manrope, sans-serif" font-size="7" font-weight="600" letter-spacing="2.2" fill="#0F3D6E" text-anchor="middle">IN BUSINESS</text>
+        </svg>
+      </span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#why">Why RDA</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#industries">Industries</a>
+      <a href="index.html#team">Our Team</a>
+      <a href="insights.html" aria-current="page">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn" data-calendly>Book Free Consultation</button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="inner">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#why">Why RDA</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#industries">Industries</a>
+      <a href="index.html#team">Our Team</a>
+      <a href="insights.html" aria-current="page">Insights</a>
+      <a href="contact.html">Contact</a>
+      <button class="btn" data-calendly>Book Free Consultation</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== BLOG HERO ===== -->
+  <section class="blog-hero">
+    <div class="grid-tx" aria-hidden="true"></div>
+    <div class="wrap reveal">
+      <div class="crumbs"><a href="index.html">Home</a> &nbsp;/&nbsp; Insights</div>
+      <div class="kicker">Insights &amp; Advisory</div>
+      <h1>The business owner's guide<br />to <em>smarter</em> money decisions</h1>
+      <p>A growing library of practical tax, accounting, and financial-strategy resources, organized by topic and written in plain language by the advisors at Real Deal Accounting.</p>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="section--tight"><div class="wrap reveal">
+    <div class="cat-bar"><button class="cat-chip active">All</button><button class="cat-chip">Tax Planning</button><button class="cat-chip">Business Growth</button><button class="cat-chip">Bookkeeping &amp; Accounting</button><button class="cat-chip">Real Estate</button><button class="cat-chip">IRS Resolution</button><button class="cat-chip">Financial Fitness&trade;</button></div>
+  </div></section>
+
+
+  <!-- ===== PILLAR LIBRARY ===== -->
+  <section class="section soft"><div class="wrap">
+    <div class="ih-head" style="margin-bottom:44px;"><div class="ih-intro"><div class="kicker">Explore the library</div><h2 style="font-size:clamp(28px,3vw,40px);">Pillars of financial guidance</h2><p style="margin-top:16px;font-size:18px;color:var(--muted);line-height:1.7;max-width:60ch;">Each pillar is anchored by an in-depth guide and supported by focused articles that go deeper on the topics business owners ask us about most.</p></div></div>
+    <div class="lib-grid">
+
+      <a class="pillar reveal" href="guide-tax-planning.html" style="--card-img:url('img/card-tax.png')">
+        <h3>The Ultimate Guide to Business Tax Planning</h3>
+        <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar reveal" href="guide-cash-flow.html" style="--card-img:url('img/card-cash.png')">
+        <h3>The Owner's Guide to Cash Flow &amp; Profitability</h3>
+        <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar reveal" href="guide-clean-books.html" style="--card-img:url('img/card-books.png')">
+        <h3>The Complete Guide to Clean Books</h3>
+        <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar reveal" href="guide-real-estate.html" style="--card-img:url('img/card-realestate.png')">
+        <h3>The Real Estate Investor's Tax Playbook</h3>
+        <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar reveal" href="guide-irs-resolution.html" style="--card-img:url('img/card-irs.png')">
+        <h3>How to Resolve IRS Tax Debt</h3>
+        <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar reveal" href="guide-payroll.html" style="--card-img:url('img/card-payroll.png')">
+        <h3>The Small Business Payroll Guide</h3>
+        <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar reveal" href="guide-retirement.html" style="--card-img:url('img/card-retirement.png')">
+        <h3>Building Wealth Beyond Your Business</h3>
+        <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar is-signature reveal" href="guide-financial-fitness.html" style="--card-img:url('img/card-fitness.png')">
+        <h3>The Financial Fitness&trade; System</h3>
+        <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar is-soon reveal" href="insights.html" style="--card-img:url('img/card-soon.png')">
+        <h3>Coming Soon</h3>
+        <span class="p-more">Stay tuned <span class="arw">&rarr;</span></span>
+      </a>
+
+    </div>
+  </div></section>
+
+  <!-- ===== FAMILY OF FIRMS ===== -->
+  <section class="section" style="padding-top:0;"><div class="wrap">
+    <div class="reveal" style="border:1px solid var(--line);border-radius:22px;padding:40px 44px;background:#fff;box-shadow:var(--shadow-sm);">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:26px;">
+        <span class="kicker" style="margin:0;">Beyond the guides</span>
+        <span style="flex:1;height:1px;background:var(--line);"></span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <a href="https://edgecostseg.com/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 26px;border:1px solid var(--line);border-radius:16px;background:var(--soft);text-decoration:none;transition:box-shadow .3s ease,transform .3s ease;">
+          <span style="display:block;">
+            <span style="display:block;font-family:var(--sans);font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:7px;">Sister firm</span>
+            <span style="display:block;font-family:var(--display);font-size:19px;font-weight:700;color:var(--ink);line-height:1.2;">Edge Cost Segregation</span>
+            <span style="display:block;font-size:14px;color:var(--muted);line-height:1.55;margin-top:6px;">Accelerate depreciation on your properties.</span>
+          </span>
+          <span style="flex-shrink:0;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--blue);white-space:nowrap;">edgecostseg.com &nearr;</span>
+        </a>
+        <a href="https://resolvedirs.com/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 26px;border:1px solid var(--line);border-radius:16px;background:var(--soft);text-decoration:none;transition:box-shadow .3s ease,transform .3s ease;">
+          <span style="display:block;">
+            <span style="display:block;font-family:var(--sans);font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:7px;">Sister firm</span>
+            <span style="display:block;font-family:var(--display);font-size:19px;font-weight:700;color:var(--ink);line-height:1.2;">Resolve IRS</span>
+            <span style="display:block;font-size:14px;color:var(--muted);line-height:1.55;margin-top:6px;">Settle IRS debt, notices, and audits.</span>
+          </span>
+          <span style="flex-shrink:0;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--blue);white-space:nowrap;">resolvedirs.com &nearr;</span>
+        </a>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="section" style="padding-top:0;"><div class="wrap">
+    <div class="news-band reveal">
+      <div class="kicker">Stay in the loop</div>
+      <h2>Get new insights in your inbox</h2>
+      <p>Be the first to read new articles on tax planning, bookkeeping, and building a financially stronger business. No noise, just useful resources.</p>
+      <form class="news-form" id="newsForm" onsubmit="return false;">
+        <input type="email" id="newsEmail" placeholder="you@yourbusiness.com" aria-label="Email address" required />
+        <button type="submit">Notify Me</button>
+      </form>
+      <p class="news-note">We'll only email you when there's something worth reading.</p>
+      <p class="news-ok" id="newsOk">Thanks — you're on the list. We'll be in touch when the first insights go live.</p>
+    </div>
+  </div></section>
+
+  <!-- ===== SIGNATURE: FINANCIAL FITNESS ===== -->
+  <section class="section" style="padding-top:0;"><div class="wrap">
+    <div class="ff-band reveal">
+      <div class="grid-tx" aria-hidden="true"></div>
+      <div class="ff-inner">
+        <div>
+          <div class="kicker">Our signature framework</div>
+          <h2>Financial Fitness<sup>&trade;</sup></h2>
+          <p>Most owners can tell you last month's revenue. Far fewer can tell you whether their business is actually getting stronger. Financial Fitness&trade; is our proprietary system for measuring, scoring, and improving the health of your business, one quarter at a time.</p>
+          <button class="btn btn-light ff-cta" data-calendly>Book your Financial Fitness Review <span class="arw">&rarr;</span></button>
+        </div>
+        <div class="ff-score">
+          <div class="ff-h">Five numbers every owner should know</div>
+          <ul class="ff-list">
+            <li><span class="n">1</span> Cash flow &amp; runway</li>
+            <li><span class="n">2</span> Gross &amp; net profit margin</li>
+            <li><span class="n">3</span> Break-even point</li>
+            <li><span class="n">4</span> Owner's true take-home</li>
+            <li><span class="n">5</span> Your Financial Fitness Score</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-sisters">
+      <div class="fs-head">
+        <span class="fs-label">Our Family of Firms</span>
+        <span class="fs-rule"></span>
+      </div>
+      <div class="fs-links">
+        <a href="https://edgecostseg.com/" target="_blank" rel="noopener"><span class="fs-plate"><img class="fs-logo" src="img/sister-edge.png" alt="Edge Cost Segregation" /></span>
+          <span class="fs-body">
+            <span class="fs-name">Edge Cost Segregation</span>
+            <span class="fs-desc">Engineering-based cost segregation studies that accelerate depreciation.</span>
+          </span>
+          <span class="fs-arw">↗</span>
+        </a>
+        <a href="https://resolvedirs.com/index.dc.html" target="_blank" rel="noopener"><span class="fs-plate"><img class="fs-logo" src="img/sister-resolved.png" alt="Resolve IRS" /></span>
+          <span class="fs-body">
+            <span class="fs-name">Resolve IRS</span>
+            <span class="fs-desc">Specialized IRS resolution and tax relief for individuals and businesses.</span>
+          </span>
+          <span class="fs-arw">↗</span>
+        </a>
+      </div>
+    </div>
+    <div class="foot-grid">
+      <div>
+        <img class="foot-logo" src="logo-mark-white.png" alt="Real Deal Accounting" />
+        
+      </div>
+      <div class="fcol">
+        <h4>Firm</h4>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#why">Why RDA</a>
+        <a href="index.html#process">Process</a>
+      </div>
+      <div class="fcol">
+        <h4>Explore</h4>
+        <a href="index.html#industries">Industries</a>
+        <a href="index.html#team">Our Team</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="fcol">
+        <h4>Contact</h4>
+        <a href="mailto:ClientServices@realdealaccounting.com">ClientServices@realdealaccounting.com</a>
+        <a href="tel:+15612704850">(561) 270-4850</a>
+        <a style="cursor:default;color:rgba(226,233,244,.55)">Mon–Fri · 9am–5pm</a>
+      </div>
+    </div>
+    <div class="foot-copy">
+      <span>© 2026 Real Deal Accounting. All rights reserved.</span>
+      <span>Real Solutions. Real Results. Real Deal.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================== BOOKING MODAL ============================== -->
+<div class="modal-back" id="modalBack" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-x" id="modalClose" aria-label="Close" style="position:absolute;">✕</button>
+    <div class="modal-head" style="position:relative;">
+      <h3 id="modalTitle">Let's Connect</h3>
+    </div>
+    <form class="modal-body" id="bookForm" novalidate>
+      <div class="field"><label for="f-name">Full name <span class="req">*</span></label><input id="f-name" name="name" type="text" placeholder="Jane Smith" autocomplete="name" /><div class="err">Please enter your name.</div></div>
+      <div class="frow2">
+        <div class="field"><label for="f-email">Email <span class="req">*</span></label><input id="f-email" name="email" type="email" placeholder="jane@acme.com" autocomplete="email" /><div class="err">Please enter a valid email.</div></div>
+        <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" placeholder="(561) 555-0123" autocomplete="tel" /><div class="err">&nbsp;</div></div>
+      </div>
+      <label class="svc-label">What can we help you with?</label>
+      <div class="svc-chips">
+        <label class="chip"><input type="checkbox" name="services" value="Bookkeeping" /><span>Bookkeeping</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Tax Services" /><span>Tax Services</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Tax Advisory" /><span>Tax Advisory</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="CFO Advisory" /><span>CFO Advisory</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Financial Fitness" /><span>Financial Fitness</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Strategic Reporting" /><span>Strategic Reporting</span></label>
+        <label class="chip"><input type="checkbox" name="services" value="Something else" /><span>Something else</span></label>
+      </div>
+      <div class="field" style="margin-bottom:20px;"><label for="f-message">How can we best support you?</label><textarea id="f-message" name="message" rows="4" placeholder="Tell us about your business, the challenges you’re facing, or any questions you have, so we can best serve you."></textarea><div class="err">Please tell us a little about what you need.</div></div>
+      <button class="btn" type="submit">Send message <span class="arw">→</span></button>
+      <p class="modal-note">We’ll get back to you within one business day.</p>
+    </form>
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-mark"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg></div>
+      <h3>You're all set!</h3>
+      <p>Thanks, <span class="who" id="successName">there</span>. We've received your message and will reach out to <span class="who" id="successEmail">your inbox</span> within one business day.</p>
+      <button class="btn" id="successDone" style="margin-top:26px;">Done</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/rda.js"></script>
+<script>
+(function(){
+  var f=document.getElementById('newsForm'); if(!f) return;
+  f.addEventListener('submit',function(){
+    var e=document.getElementById('newsEmail'); var v=(e.value||'').trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ e.focus(); return; }
+    f.style.display='none'; document.getElementById('newsOk').classList.add('show');
+  });
+  // category chips are visual only for now
+  document.querySelectorAll('.cat-chip').forEach(function(c){
+    c.addEventListener('click',function(){ document.querySelectorAll('.cat-chip').forEach(function(x){x.classList.remove('active');}); c.classList.add('active'); });
+  });
+})();
+</script>
+</body>
+</html>
