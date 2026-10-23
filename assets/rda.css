@@ -510,7 +510,7 @@ img{ max-width:100%; display:block; }
 
 /* ============================== CLOSING PHOTO ============================== */
 .closing-photo{ position:relative; height:420px; overflow:hidden; background:var(--navy); }
-.closing-photo::before{ content:""; position:absolute; inset:-24px; background-image:url('../closing-photo.png'); background-size:cover; background-position:center 32%; filter:saturate(.82) brightness(1.05) blur(1.2px); opacity:.62; transform:scale(1.08); }
+.closing-photo::before{ content:""; position:absolute; inset:-24px; background-image:url('../closing-photo.jpg'); background-size:cover; background-position:center 32%; filter:saturate(.82) brightness(1.05) blur(1.2px); opacity:.62; transform:scale(1.08); }
 .closing-photo::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(19,42,92,.42) 0%, rgba(15,30,61,.58) 100%); mix-blend-mode:normal; }
 
 /* ============================== CLOSING CTA ============================== */
@@ -522,7 +522,7 @@ img{ max-width:100%; display:block; }
 .final-cta .btn:hover{ background:var(--periwinkle); border-color:var(--periwinkle); color:var(--navy); }
 
 /* ============================== PHOTO BAND (full-bleed) ============================== */
-.photo-band{ position:relative; height:240px; background-image:url('../banner-hands.png'); background-size:cover; background-position:center 38%; }
+.photo-band{ position:relative; height:240px; background-image:url('../banner-hands.jpg'); background-size:cover; background-position:center 38%; }
 .photo-band::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(10,26,58,.9) 0%, rgba(12,46,108,.66) 50%, rgba(13,40,96,.56) 100%); }
 .photo-band .pb-inner{ position:relative; z-index:1; max-width:var(--maxw); margin:0 auto; padding:0 40px; height:100%; display:flex; flex-direction:column; justify-content:center; }
 .photo-band .pb-tag{ position:absolute; z-index:2; right:var(--pad); bottom:24px; font-family:var(--sans); font-size:16px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:#fff; }
