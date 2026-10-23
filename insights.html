@@ -223,7 +223,7 @@
       <h2>Get new insights in your inbox</h2>
       <p>Be the first to read new articles on tax planning, bookkeeping, and building a financially stronger business. No noise, just useful resources.</p>
       <form class="news-form" id="newsForm" onsubmit="return false;">
-        <input type="email" id="newsEmail" placeholder="you@yourbusiness.com" aria-label="Email address" required />
+        <input type="email" id="newsEmail" name="email" placeholder="you@yourbusiness.com" aria-label="Email address" required />
         <button type="submit">Notify Me</button>
       </form>
       <p class="news-note">We'll only email you when there's something worth reading.</p>
@@ -352,12 +352,7 @@
 <script src="assets/rda.js"></script>
 <script>
 (function(){
-  var f=document.getElementById('newsForm'); if(!f) return;
-  f.addEventListener('submit',function(){
-    var e=document.getElementById('newsEmail'); var v=(e.value||'').trim();
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ e.focus(); return; }
-    f.style.display='none'; document.getElementById('newsOk').classList.add('show');
-  });
+  // newsletter sign-up is handled in assets/rda.js
   // category chips are visual only for now
   document.querySelectorAll('.cat-chip').forEach(function(c){
     c.addEventListener('click',function(){ document.querySelectorAll('.cat-chip').forEach(function(x){x.classList.remove('active');}); c.classList.add('active'); });

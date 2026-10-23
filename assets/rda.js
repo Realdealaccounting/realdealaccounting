@@ -8,12 +8,28 @@
 
   /* ---------- Formspree (email lead notifications) ---------- */
   var FORMSPREE_URL = 'https://formspree.io/f/xrewvwov';
+  /* Resolves true only when Formspree confirms it received the submission. */
   function sendLead(formEl, subject){
     try{
       var fd = new FormData(formEl);
       if (subject) fd.append('_subject', subject);
-      fetch(FORMSPREE_URL, { method:'POST', body:fd, headers:{ 'Accept':'application/json' } }).catch(function(){});
-    }catch(e){}
+      return fetch(FORMSPREE_URL, { method:'POST', body:fd, headers:{ 'Accept':'application/json' } })
+        .then(function(res){ return res.ok; })
+        .catch(function(){ return false; });
+    }catch(e){ return Promise.resolve(false); }
+  }
+  /* Shows (or hides) a "didn't go through" message with direct contact details. */
+  function showSendError(anchorEl, show){
+    var host = anchorEl.parentNode;
+    var msg = host.querySelector('.form-error');
+    if (!msg){
+      msg = document.createElement('p');
+      msg.className = 'form-error';
+      msg.setAttribute('role', 'alert');
+      msg.innerHTML = 'Sorry, that didn’t go through. Please call us at <a href="tel:+15612704850">(561) 270-4850</a> or email <a href="mailto:ClientServices@realdealaccounting.com">ClientServices@realdealaccounting.com</a>.';
+      host.insertBefore(msg, anchorEl);
+    }
+    msg.style.display = show ? '' : 'none';
   }
   function openCalendly(name, email){
     var url = CALENDLY_URL;
@@ -53,6 +69,7 @@
       back.classList.add('open');
       document.body.style.overflow = 'hidden';
       form.style.display = ''; success.classList.remove('show');
+      var fe = form.querySelector('.form-error'); if (fe) fe.style.display = 'none';
       setTimeout(function(){ var n=document.getElementById('f-name'); if(n) n.focus(); }, 80);
       closeMenu();
     }
@@ -78,10 +95,16 @@
         var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         setInvalid('f-name', !name); setInvalid('f-email', !emailOk);
         if (!name || !emailOk){ var fb=form.querySelector('.field.invalid input, .field.invalid textarea'); if(fb) fb.focus(); return; }
-        sendLead(form, 'New inquiry — ' + name);
-        document.getElementById('successName').textContent = name.split(' ')[0] || 'there';
-        document.getElementById('successEmail').textContent = email;
-        form.style.display = 'none'; success.classList.add('show');
+        var submitBtn = form.querySelector('button[type=submit]');
+        submitBtn.disabled = true;
+        showSendError(submitBtn, false);
+        sendLead(form, 'New inquiry — ' + name).then(function(ok){
+          submitBtn.disabled = false;
+          if (!ok){ showSendError(submitBtn, true); return; }
+          document.getElementById('successName').textContent = name.split(' ')[0] || 'there';
+          document.getElementById('successEmail').textContent = email;
+          form.style.display = 'none'; success.classList.add('show');
+        });
       });
       form.querySelectorAll('input, textarea').forEach(function(inp){
         inp.addEventListener('input', function(){ inp.closest('.field').classList.remove('invalid'); });
@@ -104,12 +127,37 @@
       setInv(cform.querySelector('[name=email]'), !emailOk);
       setInv(cform.querySelector('[name=phone]'), !phoneOk);
       if (!name || !emailOk || !phoneOk){ var fb=cform.querySelector('.field.invalid input'); if(fb) fb.focus(); return; }
-      sendLead(cform, 'New contact request — ' + name);
-      cform.style.display='none';
-      var ok = document.getElementById('contactSuccess'); if(ok) ok.classList.add('show');
+      var cBtn = cform.querySelector('button[type=submit]');
+      if (cBtn){ cBtn.disabled = true; showSendError(cBtn, false); }
+      sendLead(cform, 'New contact request — ' + name).then(function(sent){
+        if (cBtn) cBtn.disabled = false;
+        if (!sent){ if (cBtn) showSendError(cBtn, true); return; }
+        cform.style.display='none';
+        var ok = document.getElementById('contactSuccess'); if(ok) ok.classList.add('show');
+      });
     });
     cform.querySelectorAll('input').forEach(function(inp){
       inp.addEventListener('input', function(){ inp.closest('.field').classList.remove('invalid'); });
+    });
+  }
+
+  /* ---------- Newsletter sign-up (insights page) ---------- */
+  var nform = document.getElementById('newsForm');
+  if (nform){
+    nform.addEventListener('submit', function(e){
+      e.preventDefault();
+      var input = document.getElementById('newsEmail');
+      var v = (input.value||'').trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){ input.focus(); return; }
+      var nBtn = nform.querySelector('button[type=submit]');
+      nBtn.disabled = true;
+      showSendError(nform, false);
+      sendLead(nform, 'Newsletter sign-up — ' + v).then(function(sent){
+        nBtn.disabled = false;
+        if (!sent){ showSendError(nform, true); return; }
+        nform.style.display = 'none';
+        var ok = document.getElementById('newsOk'); if (ok) ok.classList.add('show');
+      });
     });
   }
 
