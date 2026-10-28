@@ -14,7 +14,7 @@
   --blue:#0F3D6E;        /* IBM Blue (primary) */
   --blue-600:#0A2C50;    /* darker hover */
   --indigo:#16264a;      /* navy depth for gradients */
-  --periwinkle:#5E86B8;  /* IBM blue accent on dark */
+  --periwinkle:#7A9DCC;  /* IBM blue accent on dark (lightened from #5E86B8 for WCAG AA contrast on navy) */
   --ink:#0F1E3D;         /* headings */
 
   /* neutrals */
@@ -151,7 +151,7 @@ img{ max-width:100%; display:block; }
 .hero .kicker{ margin-bottom:24px; }
 .hero h1{ font-size:clamp(44px, 5.4vw, 80px); letter-spacing:-.02em; line-height:1.05; max-width:none; }
 .hero h1 em{ font-style:normal; color:var(--blue); font-weight:700; }
-.hero .sub{ font-size:20px; line-height:1.6; color:var(--muted); margin:28px 0 36px; max-width:50ch; }
+.hero .sub{ font-size:20px; line-height:1.6; color:var(--slate); margin:28px 0 36px; max-width:50ch; }
 .hero .cta{ display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-start; margin-top:38px; }
 .hero .meta{ margin-top:40px; padding-top:0; border-top:none; display:grid; grid-template-columns:repeat(2,max-content); gap:14px 40px; align-items:center; justify-content:flex-start; }
 .hero .meta .m{ font-size:13.5px; color:var(--slate); font-weight:600; display:flex; align-items:center; gap:9px; }
@@ -197,6 +197,7 @@ img{ max-width:100%; display:block; }
 .phero h1{ font-size:clamp(38px, 4.8vw, 62px); max-width:18ch; }
 .phero .lead{ font-size:20px; color:var(--muted); margin-top:24px; max-width:60ch; line-height:1.6; }
 .phero .crumbs{ font-size:13px; color:var(--muted); margin-bottom:26px; font-weight:600; letter-spacing:.02em; }
+.crumbs a{ display:inline-block; padding:4px 0; min-height:24px; }
 .phero .crumbs a:hover{ color:var(--ink); }
 
 /* ============================== TRUST STRIP ============================== */
@@ -330,7 +331,7 @@ img{ max-width:100%; display:block; }
 .fcol h4{ font-size:11.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--periwinkle); margin-bottom:18px; }
 .fcol a{ display:block; color:rgba(226,233,244,.72); font-size:15px; margin-bottom:12px; transition:color .15s; white-space:nowrap; }
 .fcol a:hover{ color:#fff; }
-.foot-copy{ margin-top:30px; padding-top:0; border-top:none; display:flex; justify-content:center; text-align:center; gap:16px; flex-wrap:wrap; font-size:13px; color:rgba(226,233,244,.5); }
+.foot-copy{ margin-top:30px; padding-top:0; border-top:none; display:flex; justify-content:center; text-align:center; gap:16px; flex-wrap:wrap; font-size:13px; color:rgba(226,233,244,.66); }
 
 /* sister firms — boutique editorial banner */
 .foot-sisters{ margin:0 0 52px; padding:0; border:none; background:none; display:block; }
@@ -408,7 +409,7 @@ img{ max-width:100%; display:block; }
 .chip input:checked + span{ background:var(--navy-700); color:#fff; border-color:transparent; }
 .chip input:focus-visible + span{ outline:2px solid var(--blue); outline-offset:2px; }
 .modal .btn{ width:100%; justify-content:center; padding:15px; font-size:15.5px; }
-.modal-note{ text-align:center; font-size:12.5px; color:#9aa4b5; margin-top:14px; }
+.modal-note{ text-align:center; font-size:12.5px; color:var(--muted); margin-top:14px; }
 .form-error{ margin:0 0 14px; font-size:14px; line-height:1.5; color:#b42318; overflow-wrap:anywhere; }
 .form-error a{ text-decoration:underline; font-weight:600; }
 .modal .btn:disabled, .news-form button:disabled{ opacity:.6; cursor:wait; }
@@ -954,7 +955,7 @@ body{ -webkit-text-size-adjust:100%; }
 .news-form button{ flex:0 0 auto; border:none; cursor:pointer; font-family:var(--sans); font-size:15px; font-weight:700;
   color:#0F1E3D; background:#fff; padding:15px 28px; border-radius:12px; transition:background .2s ease, transform .2s ease; }
 .news-form button:hover{ background:#dfe9f6; transform:translateY(-2px); }
-.news-note{ margin-top:16px; font-size:13px; color:rgba(226,233,244,.5); }
+.news-note{ margin-top:16px; font-size:13px; color:rgba(226,233,244,.66); }
 .news-ok{ display:none; margin-top:24px; font-size:16px; color:#bfe3c8; }
 .news-ok.show{ display:block; }
 .news-band .form-error{ margin:16px 0; color:#ffd2cc; }
@@ -974,3 +975,43 @@ body{ -webkit-text-size-adjust:100%; }
   .news-band{ padding:52px 26px; }
   .feat-post .fp-body{ padding:32px 26px; }
 }
+
+/* ============================== SEO PHASE 2 ADDITIONS ============================== */
+/* homepage H1 topic line */
+.h1-eyebrow{ display:block; font-family:var(--sans); font-size:13px; font-weight:700; font-style:normal; letter-spacing:.16em; text-transform:uppercase; color:var(--blue); line-height:1.5; margin-bottom:20px; max-width:46ch; }
+/* footer */
+.fcol .foot-hours{ display:block; color:rgba(226,233,244,.66); font-size:15px; margin-bottom:12px; }
+/* guides: plain image in figure frame, disclaimer, CTA link */
+.fig .fig-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+.prose p.guide-note{ margin:28px 0 0; font-size:13.5px; line-height:1.6; color:var(--slate); font-style:italic; }
+.guide-cta p a{ color:#fff; text-decoration:underline; text-underline-offset:3px; }
+/* long kickers wrap on phones instead of being cut off */
+@media (max-width:600px){ .kicker{ white-space:normal; } }
+/* service pages */
+.svc-body{ max-width:760px; }
+.svc-body h2{ font-size:clamp(24px,2.4vw,32px); line-height:1.18; margin:48px 0 14px; }
+.svc-body h2:first-child{ margin-top:0; }
+.svc-body p{ font-size:17px; line-height:1.75; color:var(--muted); margin:0 0 16px; }
+.svc-body ul{ list-style:none; margin:0 0 18px; padding:0; }
+.svc-body li{ position:relative; padding-left:26px; font-size:16.5px; line-height:1.7; color:var(--muted); margin-bottom:10px; }
+.svc-body li::before{ content:""; position:absolute; left:4px; top:11px; width:7px; height:7px; border-radius:2px; background:var(--blue); }
+.svc-body a{ color:var(--blue); text-decoration:underline; text-underline-offset:3px; }
+.svc-related{ margin-top:44px; padding:26px 28px; border:1px solid var(--line); border-radius:14px; background:var(--soft); }
+.svc-related h3{ font-size:19px; margin-bottom:14px; }
+.svc-related ul{ margin:0; }
+.svc-more{ display:inline-flex; align-items:center; gap:7px; margin-top:16px; font-size:14px; font-weight:700; color:var(--blue); }
+.svc-more:hover .arw{ transform:translateX(3px); }
+.svc-hub-note{ margin-top:36px; font-size:16px; color:var(--muted); }
+.svc-hub-note a{ color:var(--blue); text-decoration:underline; text-underline-offset:3px; }
+/* FAQ accordion */
+.faq-h{ font-size:clamp(26px,3vw,38px); }
+.faq{ max-width:820px; margin-top:28px; border-top:1px solid var(--line); }
+.faq-item{ border-bottom:1px solid var(--line); }
+.faq-item summary{ cursor:pointer; list-style:none; position:relative; padding:20px 44px 20px 0; font-family:var(--display); font-size:19px; line-height:1.35; color:var(--ink); }
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary::after{ content:"+"; position:absolute; right:8px; top:15px; font-family:var(--sans); font-size:24px; color:var(--blue); }
+.faq-item[open] summary::after{ content:"\2212"; }
+.faq-item summary:focus-visible{ outline:2px solid var(--blue); outline-offset:3px; }
+.faq-a p{ margin:0 0 20px; font-size:16.5px; line-height:1.7; color:var(--muted); max-width:68ch; }
+/* footer links wrap on phones so the address is never cut off */
+@media (max-width:600px){ .fcol a{ white-space:normal; overflow-wrap:anywhere; } }

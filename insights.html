@@ -3,8 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Insights · Real Deal Accounting</title>
-<meta name="description" content="Insights for smarter business decisions. Practical accounting, tax, and financial-strategy resources from the advisors at Real Deal Accounting." />
+<!-- seo-head -->
+<title>Accounting &amp; Tax Guides for Business Owners | Real Deal</title>
+<meta name="description" content="Plain-language guides on business tax planning, bookkeeping, cash flow, payroll, IRS tax debt and real estate taxes from Real Deal Accounting." />
+<link rel="canonical" href="https://realdealaccounting.com/insights.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Real Deal Accounting" />
+<meta property="og:title" content="Accounting &amp; Tax Guides for Business Owners | Real Deal" />
+<meta property="og:description" content="Plain-language guides on business tax planning, bookkeeping, cash flow, payroll, IRS tax debt and real estate taxes from Real Deal Accounting." />
+<meta property="og:url" content="https://realdealaccounting.com/insights.html" />
+<meta property="og:image" content="https://realdealaccounting.com/img/knowledge-hero.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Accounting &amp; Tax Guides for Business Owners | Real Deal" />
+<meta name="twitter:description" content="Plain-language guides on business tax planning, bookkeeping, cash flow, payroll, IRS tax debt and real estate taxes from Real Deal Accounting." />
+<meta name="twitter:image" content="https://realdealaccounting.com/img/knowledge-hero.jpg" />
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
 <link rel="icon" type="image/png" href="favicon.png" />
@@ -12,7 +24,7 @@
 <meta name="theme-color" content="#01143A" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Schibsted+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/rda.css" />
 <style>
   /* ---- Insights: pillar library ---- */
@@ -60,7 +72,11 @@
   .ff-list li{ display:flex; align-items:center; gap:13px; padding:13px 0; border-top:1px solid rgba(255,255,255,.1); font-size:15px; color:#eaf1fb; font-weight:800; text-transform:uppercase; letter-spacing:.04em; }
   .ff-list li:first-child{ border-top:none; }
   .ff-list li .n{ font-family:var(--display); font-size:19px; font-weight:600; color:#8fb2e0; min-width:26px; }
+  .sister-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .sister-grid > a{ flex-wrap:wrap; }
+  .pillar.is-hidden{ display:none; }
   @media (max-width:860px){
+    .sister-grid{ grid-template-columns:1fr; }
     .lib-grid{ grid-template-columns:1fr; }
     .ff-band{ padding:40px 26px; } .ff-band .ff-inner{ grid-template-columns:1fr; gap:32px; }
   }
@@ -68,6 +84,26 @@
 <template id="__bundler_thumbnail">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#01143A"/><text x="50" y="62" font-family="Georgia, serif" font-size="40" fill="#8AB6F2" text-anchor="middle">i</text></svg>
 </template>
+<script type="application/ld+json">
+{
+    "@context":  "https://schema.org",
+    "@type":  "BreadcrumbList",
+    "itemListElement":  [
+                            {
+                                "@type":  "ListItem",
+                                "position":  1,
+                                "name":  "Home",
+                                "item":  "https://realdealaccounting.com/"
+                            },
+                            {
+                                "@type":  "ListItem",
+                                "position":  2,
+                                "name":  "Insights",
+                                "item":  "https://realdealaccounting.com/insights.html"
+                            }
+                        ]
+}
+</script>
 </head>
 <body>
 
@@ -87,8 +123,8 @@
       </span>
     </div>
     <nav class="nav-links">
+      <a href="services.html">Services</a>
       <a href="index.html#philosophy">Our Philosophy</a>
-      <a href="index.html#approach">Our Approach</a>
       <a href="index.html#team">Our Team</a>
       <a href="index.html#giving">Giving</a>
       <a href="insights.html" aria-current="page">Insights</a>
@@ -103,8 +139,8 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <div class="inner">
+      <a href="services.html">Services</a>
       <a href="index.html#philosophy">Our Philosophy</a>
-      <a href="index.html#approach">Our Approach</a>
       <a href="index.html#team">Our Team</a>
       <a href="index.html#giving">Giving</a>
       <a href="insights.html" aria-current="page">Insights</a>
@@ -129,7 +165,7 @@
 
   <!-- ===== CATEGORIES ===== -->
   <section class="section--tight"><div class="wrap reveal">
-    <div class="cat-bar"><button class="cat-chip active">All</button><button class="cat-chip">Tax Planning</button><button class="cat-chip">Business Growth</button><button class="cat-chip">Bookkeeping &amp; Accounting</button><button class="cat-chip">Real Estate</button><button class="cat-chip">IRS Resolution</button><button class="cat-chip">Financial Fitness&trade;</button></div>
+    <div class="cat-bar" role="group" aria-label="Filter guides by topic"><button class="cat-chip active" data-filter="all" aria-pressed="true">All</button><button class="cat-chip" data-filter="tax" aria-pressed="false">Tax Planning</button><button class="cat-chip" data-filter="growth" aria-pressed="false">Business Growth</button><button class="cat-chip" data-filter="books" aria-pressed="false">Bookkeeping &amp; Accounting</button><button class="cat-chip" data-filter="realestate" aria-pressed="false">Real Estate</button><button class="cat-chip" data-filter="irs" aria-pressed="false">IRS Resolution</button><button class="cat-chip" data-filter="fitness" aria-pressed="false">Financial Fitness&trade;</button></div>
   </div></section>
 
 
@@ -138,49 +174,44 @@
     <div class="ih-head" style="margin-bottom:44px;"><div class="ih-intro"><div class="kicker">Explore the library</div><h2 style="font-size:clamp(28px,3vw,40px);">Pillars of financial guidance</h2><p style="margin-top:16px;font-size:18px;color:var(--muted);line-height:1.7;max-width:60ch;">Each pillar is anchored by an in-depth guide and supported by focused articles that go deeper on the topics business owners ask us about most.</p></div></div>
     <div class="lib-grid">
 
-      <a class="pillar reveal" href="guide-tax-planning.html" style="--card-img:url('img/card-tax.jpg')">
+      <a class="pillar reveal" data-cat="tax" href="guide-tax-planning.html" style="--card-img:url('img/card-tax-sm.jpg')">
         <h3>The Ultimate Guide to Business Tax Planning</h3>
         <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
       </a>
 
-      <a class="pillar reveal" href="guide-cash-flow.html" style="--card-img:url('img/card-cash.jpg')">
+      <a class="pillar reveal" data-cat="growth" href="guide-cash-flow.html" style="--card-img:url('img/card-cash-sm.jpg')">
         <h3>The Owner's Guide to Cash Flow &amp; Profitability</h3>
         <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
       </a>
 
-      <a class="pillar reveal" href="guide-clean-books.html" style="--card-img:url('img/card-books.jpg')">
+      <a class="pillar reveal" data-cat="books" href="guide-clean-books.html" style="--card-img:url('img/card-books-sm.jpg')">
         <h3>The Complete Guide to Clean Books</h3>
         <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
       </a>
 
-      <a class="pillar reveal" href="guide-real-estate.html" style="--card-img:url('img/card-realestate.jpg')">
+      <a class="pillar reveal" data-cat="realestate tax" href="guide-real-estate.html" style="--card-img:url('img/card-realestate-sm.jpg')">
         <h3>The Real Estate Investor's Tax Playbook</h3>
         <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
       </a>
 
-      <a class="pillar reveal" href="guide-irs-resolution.html" style="--card-img:url('img/card-irs.jpg')">
+      <a class="pillar reveal" data-cat="irs tax" href="guide-irs-resolution.html" style="--card-img:url('img/card-irs-sm.jpg')">
         <h3>How to Resolve IRS Tax Debt</h3>
         <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
       </a>
 
-      <a class="pillar reveal" href="guide-payroll.html" style="--card-img:url('img/card-payroll.jpg')">
+      <a class="pillar reveal" data-cat="books" href="guide-payroll.html" style="--card-img:url('img/card-payroll-sm.jpg')">
         <h3>The Small Business Payroll Guide</h3>
         <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
       </a>
 
-      <a class="pillar reveal" href="guide-retirement.html" style="--card-img:url('img/card-retirement.jpg')">
+      <a class="pillar reveal" data-cat="growth" href="guide-retirement.html" style="--card-img:url('img/card-retirement-sm.jpg')">
         <h3>Building Wealth Beyond Your Business</h3>
         <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
       </a>
 
-      <a class="pillar is-signature reveal" href="guide-financial-fitness.html" style="--card-img:url('img/card-fitness.jpg')">
+      <a class="pillar is-signature reveal" data-cat="fitness growth" href="guide-financial-fitness.html" style="--card-img:url('img/card-fitness-sm.jpg')">
         <h3>The Financial Fitness&trade; System</h3>
         <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
-      </a>
-
-      <a class="pillar is-soon reveal" href="insights.html" style="--card-img:url('img/card-soon.jpg')">
-        <h3>Coming Soon</h3>
-        <span class="p-more">Stay tuned <span class="arw">&rarr;</span></span>
       </a>
 
     </div>
@@ -193,7 +224,7 @@
         <span class="kicker" style="margin:0;">Beyond the guides</span>
         <span style="flex:1;height:1px;background:var(--line);"></span>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div class="sister-grid">
         <a href="https://edgecostseg.com/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 26px;border:1px solid var(--line);border-radius:16px;background:var(--soft);text-decoration:none;transition:box-shadow .3s ease,transform .3s ease;">
           <span style="display:block;">
             <span style="display:block;font-family:var(--sans);font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:7px;">Sister firm</span>
@@ -283,26 +314,30 @@
     <div class="foot-grid">
       <div>
         <img class="foot-logo" src="logo-mark-white.png" alt="Real Deal Accounting" />
-        
+        <p class="foot-tag">35 years in business</p>
       </div>
       <div class="fcol">
-        <h4>Explore</h4>
-        <a href="index.html#philosophy">Our Philosophy</a>
-        <a href="index.html#approach">Our Approach</a>
-        <a href="index.html#team">Our Team</a>
+        <h4>Services</h4>
+        <a href="bookkeeping-services.html">Bookkeeping</a>
+        <a href="tax-services.html">Tax Preparation &amp; Planning</a>
+        <a href="payroll-services.html">Payroll</a>
+        <a href="cfo-advisory.html">Fractional CFO</a>
+        <a href="membership.html">Real Deal Monthly</a>
       </div>
       <div class="fcol">
         <h4>Firm</h4>
+        <a href="index.html#philosophy">Our Philosophy</a>
+        <a href="team.html">Our Team</a>
+        <a href="process.html">Our Process</a>
         <a href="index.html#giving">Giving</a>
         <a href="insights.html">Insights</a>
-        <a href="contact.html">Contact</a>
-        <a href="index.html#approach">Services</a>
       </div>
       <div class="fcol">
         <h4>Contact</h4>
         <a href="mailto:ClientServices@realdealaccounting.com">ClientServices@realdealaccounting.com</a>
         <a href="tel:+15612704850">(561) 270-4850</a>
-        <a style="cursor:default;color:rgba(226,233,244,.55)">Mon–Fri · 9am–5pm</a>
+        <a href="https://maps.google.com/?q=6301+NW+5th+Way+Fort+Lauderdale+FL+33309" target="_blank" rel="noopener">6301 NW 5th Way, Fort Lauderdale, FL 33309</a>
+        <span class="foot-hours">Mon&ndash;Fri &middot; 9am&ndash;5pm</span>
       </div>
     </div>
     <div class="foot-copy">
@@ -352,9 +387,19 @@
 <script>
 (function(){
   // newsletter sign-up is handled in assets/rda.js
-  // category chips are visual only for now
-  document.querySelectorAll('.cat-chip').forEach(function(c){
-    c.addEventListener('click',function(){ document.querySelectorAll('.cat-chip').forEach(function(x){x.classList.remove('active');}); c.classList.add('active'); });
+  // category chips filter the guide cards by their data-cat topics
+  var chips = document.querySelectorAll('.cat-chip');
+  var cards = document.querySelectorAll('.lib-grid .pillar');
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      var f = c.getAttribute('data-filter') || 'all';
+      chips.forEach(function(x){ x.classList.remove('active'); x.setAttribute('aria-pressed','false'); });
+      c.classList.add('active'); c.setAttribute('aria-pressed','true');
+      cards.forEach(function(card){
+        var cats = (card.getAttribute('data-cat') || '').split(' ');
+        card.classList.toggle('is-hidden', f !== 'all' && cats.indexOf(f) === -1);
+      });
+    });
   });
 })();
 </script>
