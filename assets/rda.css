@@ -1028,7 +1028,7 @@ body{ -webkit-text-size-adjust:100%; }
 .ih-latest a{ color:var(--blue); font-weight:600; }
 .ih-latest a:hover{ text-decoration:underline; }
 
-/* team (7 people): every card the same width at every screen size, last row centered */
+/* team: every card the same width at every screen size, a short last row is centered */
 @media (min-width: 561px) and (max-width: 860px){
   .team-grid .member{ flex:0 0 calc((100% - 42px) / 4); max-width:none; }
 }
