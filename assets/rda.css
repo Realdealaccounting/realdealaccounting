@@ -1015,3 +1015,28 @@ body{ -webkit-text-size-adjust:100%; }
 .faq-a p{ margin:0 0 20px; font-size:16.5px; line-height:1.7; color:var(--muted); max-width:68ch; }
 /* footer links wrap on phones so the address is never cut off */
 @media (max-width:600px){ .fcol a{ white-space:normal; overflow-wrap:anywhere; } }
+
+/* team: with 8 people, show two even rows of 4 on desktop instead of 8 narrow cards in one row */
+@media (min-width: 861px){
+  .team-grid{ max-width:880px; gap:18px; }
+  .team-grid .member{ flex:1 1 180px; max-width:206px; }
+}
+
+/* homepage: text links to newer Insights under the guide cards */
+.ih-latest{ display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 26px; margin-top:30px; font-size:15px; line-height:1.5; }
+.ih-latest-h{ font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--slate); }
+.ih-latest a{ color:var(--blue); font-weight:600; }
+.ih-latest a:hover{ text-decoration:underline; }
+
+/* team (7 people): every card the same width at every screen size, last row centered */
+@media (min-width: 561px) and (max-width: 860px){
+  .team-grid .member{ flex:0 0 calc((100% - 42px) / 4); max-width:none; }
+}
+@media (max-width: 560px){
+  .team-grid .member:last-child:nth-child(odd){ flex-basis:calc(50% - 8px); }
+  .team-grid .member:last-child:nth-child(odd) .member-photo{ max-width:none; }
+}
+@media (max-width: 400px){
+  .team-grid{ max-width:360px; }
+  .team-grid .member{ flex:0 1 calc(50% - 8px); }
+}

@@ -75,6 +75,9 @@
   .sister-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
   .sister-grid > a{ flex-wrap:wrap; }
   .pillar.is-hidden{ display:none; }
+  /* latest articles: same card as the pillars, plus a topic tag and a short description */
+  .art-grid .pillar{ min-height:380px; }
+  .pillar .p-desc{ font-size:14.5px; line-height:1.6; color:rgba(234,241,251,.88); margin:-4px 0 16px; }
   @media (max-width:860px){
     .sister-grid{ grid-template-columns:1fr; }
     .lib-grid{ grid-template-columns:1fr; }
@@ -214,9 +217,84 @@
         <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
       </a>
 
+      <a class="pillar reveal" data-cat="growth" href="guide-budgeting-forecasting.html" style="--card-img:url('img/card-budget-sm.jpg')">
+        <h3>The Owner's Guide to Budgeting &amp; Forecasting</h3>
+        <span class="p-more">Read the guide <span class="arw">&rarr;</span></span>
+      </a>
+
     </div>
   </div></section>
 
+  <!-- ===== LATEST ARTICLES ===== -->
+  <section class="section soft" style="padding-top:0;"><div class="wrap">
+    <div class="ih-head" style="margin-bottom:44px;"><div class="ih-intro"><div class="kicker">Latest articles</div><h2 style="font-size:clamp(28px,3vw,40px);">Practical answers to common questions</h2><p style="margin-top:16px;font-size:18px;color:var(--muted);line-height:1.7;max-width:60ch;">Focused articles on the tax, bookkeeping and cash flow questions business owners and families ask us most.</p></div></div>
+    <div class="lib-grid art-grid">
+
+      <a class="pillar art reveal" data-cat="tax" href="tax-planning-strategies.html" style="--card-img:url('img/art-tax-strategies-sm.jpg')">
+        <div class="p-top"><span class="p-cat">Tax Planning</span></div>
+        <h3>Tax Planning Strategies Every Business Owner Should Know</h3>
+        <p class="p-desc">Deductions, quarterly estimates and the year-round habits that keep more of your profit in the business.</p>
+        <span class="p-more">Read the article <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar art reveal" data-cat="tax" href="common-small-business-tax-mistakes.html" style="--card-img:url('img/art-tax-mistakes-sm.jpg')">
+        <div class="p-top"><span class="p-cat">Tax Planning</span></div>
+        <h3>7 Common Tax Mistakes Small Business Owners Make</h3>
+        <p class="p-desc">Mixed accounts, missed deadlines, overlooked deductions and the simple habits that prevent them.</p>
+        <span class="p-more">Read the article <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar art reveal" data-cat="growth" href="understanding-cash-flow.html" style="--card-img:url('img/art-cash-flow-sm.jpg')">
+        <div class="p-top"><span class="p-cat">Business Growth</span></div>
+        <h3>Understanding Cash Flow: The Key to Running a Successful Business</h3>
+        <p class="p-desc">The difference between profit and cash, how to watch both and practical ways to strengthen cash flow.</p>
+        <span class="p-more">Read the article <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar art reveal" data-cat="tax books" href="prepare-business-for-tax-season.html" style="--card-img:url('img/art-tax-season-sm.jpg')">
+        <div class="p-top"><span class="p-cat">Tax Planning</span></div>
+        <h3>How to Prepare Your Business for Tax Season</h3>
+        <p class="p-desc">What to gather, what to reconcile and a step-by-step checklist to get ready before the deadlines.</p>
+        <span class="p-more">Read the article <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar art reveal" data-cat="irs tax" href="irs-audit-business-owners.html" style="--card-img:url('img/art-irs-audit-sm.jpg')">
+        <div class="p-top"><span class="p-cat">IRS Resolution</span></div>
+        <h3>IRS Audits: What Business Owners Need to Know</h3>
+        <p class="p-desc">How businesses are selected, the records to keep and the right way to respond to an IRS notice.</p>
+        <span class="p-more">Read the article <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar art reveal" data-cat="tax growth" href="llc-vs-s-corp-vs-c-corp.html" style="--card-img:url('img/art-business-structure-sm.jpg')">
+        <div class="p-top"><span class="p-cat">Tax Planning</span></div>
+        <h3>Choosing the Right Business Structure: LLC, S Corporation or C Corporation</h3>
+        <p class="p-desc">How LLCs, S corporations and C corporations differ on taxes, liability and ownership.</p>
+        <span class="p-more">Read the article <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar art reveal" data-cat="books growth" href="bookkeeping-for-business-growth.html" style="--card-img:url('img/art-bookkeeping-sm.jpg')">
+        <div class="p-top"><span class="p-cat">Bookkeeping</span></div>
+        <h3>Why Proper Bookkeeping Is Essential for Business Growth</h3>
+        <p class="p-desc">How accurate books lead to better decisions, simpler tax seasons and steadier growth.</p>
+        <span class="p-more">Read the article <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar art reveal" data-cat="tax" href="tax-saving-tips-individuals-families.html" style="--card-img:url('img/art-family-taxes-sm.jpg')">
+        <div class="p-top"><span class="p-cat">Tax Planning</span></div>
+        <h3>Tax-Saving Opportunities Individuals and Families Should Understand</h3>
+        <p class="p-desc">Family tax credits, retirement and education benefits, and the records charitable gifts require.</p>
+        <span class="p-more">Read the article <span class="arw">&rarr;</span></span>
+      </a>
+
+      <a class="pillar art reveal" data-cat="books tax" href="how-long-to-keep-business-records.html" style="--card-img:url('img/art-records-sm.jpg')">
+        <div class="p-top"><span class="p-cat">Bookkeeping</span></div>
+        <h3>How Long Should You Keep Business Records?</h3>
+        <p class="p-desc">The IRS retention rules, what to keep permanently and a simple system for organizing it all.</p>
+        <span class="p-more">Read the article <span class="arw">&rarr;</span></span>
+      </a>
+
+    </div>
+  </div></section>
   <!-- ===== FAMILY OF FIRMS ===== -->
   <section class="section" style="padding-top:0;"><div class="wrap">
     <div class="reveal" style="border:1px solid var(--line);border-radius:22px;padding:40px 44px;background:#fff;box-shadow:var(--shadow-sm);">
