@@ -136,6 +136,23 @@ img{ max-width:100%; display:block; }
 .nav-links a:hover::after,
 .nav-links a[aria-current="page"]::after{ transform:scaleX(1); }
 .nav-links a[aria-current="page"]{ color:var(--blue); }
+
+/* ---- Client Portal: outlined pill in the nav ---- */
+.nav-links a.nav-portal{
+  margin-left:4px; padding:9px 20px; border:1.5px solid rgba(15,61,110,.38); border-radius:999px;
+  color:var(--blue); background:transparent;
+  transition:background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.nav-links a.nav-portal::after{ display:none; }
+.nav-links a.nav-portal:hover,
+.nav-links a.nav-portal:focus-visible{
+  background:var(--blue); border-color:var(--blue); color:#fff; box-shadow:0 6px 16px rgba(15,61,110,.22);
+}
+.mobile-menu a.mobile-portal{
+  margin-top:16px; padding:13px 20px; text-align:center;
+  border:1.5px solid rgba(15,61,110,.38); border-radius:999px; color:var(--blue);
+}
+.mobile-menu a.mobile-portal:hover{ background:var(--blue); border-color:var(--blue); color:#fff; }
 .nav-actions{ display:flex; align-items:center; gap:16px; }
 .hamburger{ display:none; background:none; border:none; cursor:pointer; padding:8px; color:var(--ink); }
 .mobile-menu{ display:none; }
@@ -678,6 +695,18 @@ img{ max-width:100%; display:block; }
 @media (prefers-reduced-motion: reduce){ .book-tab{ transition:opacity .2s ease, visibility .2s ease; } }
 
 /* ============================== RESPONSIVE ============================== */
+/* Seven nav items + two buttons get tight on small laptops:
+   tighten the row so the nav fits once Client Portal is in it. */
+@media (min-width: 981px) and (max-width: 1140px){
+  .nav-links{ gap:17px; }
+  .nav-links a{ font-size:13.5px; }
+  .nav-links a.nav-portal{ margin-left:0; padding:8px 14px; }
+  .nav-actions{ gap:12px; }
+  .nav-actions .btn{ padding:13px 18px; font-size:13.5px; }
+  .nav-logo img{ height:50px; }
+  .nav-seal{ padding-left:10px; }
+  .nav-seal svg{ width:42px; height:42px; }
+}
 @media (max-width: 1024px){
   :root{ --pad:48px; }
   .served-row{ flex-wrap:wrap; gap:12px 26px; }
