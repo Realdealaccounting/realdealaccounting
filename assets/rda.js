@@ -2,9 +2,9 @@
    REAL DEAL ACCOUNTING — shared interactions
    ============================================================ */
 (function(){
-  /* ---------- Calendly ---------- */
-  /* Paste your real scheduling link here — it's used site-wide. */
-  var CALENDLY_URL = 'https://calendly.com/swasserman-o0l3/meet-with-shaul-clone';
+  /* ---------- Booking ---------- */
+  /* Every booking button opens the Let's Connect modal; set by the modal section below. */
+  var openBookingModal = null;
 
   /* ---------- Formspree (email lead notifications) ---------- */
   var FORMSPREE_URL = 'https://formspree.io/f/xrewvwov';
@@ -31,15 +31,6 @@
     }
     msg.style.display = show ? '' : 'none';
   }
-  function openCalendly(name, email){
-    var url = CALENDLY_URL;
-    if (name || email){
-      url += (url.indexOf('?') > -1 ? '&' : '?')
-           + 'name=' + encodeURIComponent(name || '')
-           + '&email=' + encodeURIComponent(email || '');
-    }
-    window.open(url, '_blank', 'noopener');
-  }
 
   /* ---------- Mobile menu ---------- */
   var ham = document.getElementById('hamburger');
@@ -52,11 +43,6 @@
     });
     mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
   }
-
-  /* ---------- Direct Calendly booking buttons ---------- */
-  document.querySelectorAll('[data-calendly]').forEach(function(b){
-    b.addEventListener('click', function(e){ e.preventDefault(); window.open(CALENDLY_URL, '_blank', 'noopener'); closeMenu(); });
-  });
 
   /* ---------- Booking modal ---------- */
   var back = document.getElementById('modalBack');
@@ -79,6 +65,7 @@
       if (lastFocus) lastFocus.focus();
     }
     document.querySelectorAll('[data-book]').forEach(function(b){ b.addEventListener('click', function(e){ e.preventDefault(); openModal(); }); });
+    openBookingModal = openModal;
     var x = document.getElementById('modalClose'); if(x) x.addEventListener('click', closeModal);
     var done = document.getElementById('successDone'); if(done) done.addEventListener('click', closeModal);
     back.addEventListener('click', function(e){ if (e.target === back) closeModal(); });
@@ -259,7 +246,7 @@
     tab.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Book a Call';
     document.body.appendChild(tab);
     tab.addEventListener('click', function(){
-      window.open(CALENDLY_URL, '_blank', 'noopener');
+      if (openBookingModal) openBookingModal();
     });
 
     var ticking = false;
